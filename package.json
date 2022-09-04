@@ -5,12 +5,16 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "docs": "jsdoc -c jsdoc.json"
+    "docs": "jsdoc -c jsdoc.json",
+    "deploy": "gh-pages -d ./src/docs"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "jsdoc": "^3.6.11"
+  },
+  "devDependencies": {
+    "gh-pages": "^4.0.0"
   }
 }
