@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: cardOfProducts.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: cardOfProducts.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>'use strict';
+
+/**
+ * Cart Module
+ * @module CardOfProducts
+ *
+ * @author  Victor Vega &lt;victorvega.v@gmail.com>
+ * @version 1.0.0
+ * @description Web Component que se crea a través de clase para definir el card de productos a renderizar. 
+ */
+
+import applyDiscountOnPrice from './utils/utils.js';
+
+class CardOfProducts extends HTMLElement {
+
+    /**
+     * Descripción del constructor de productos.
+     * @param  {[type]} config Se crea el constructor para los distintos atributos de los productos.
+     */
+    constructor() {
+        super();
+        this.image;
+        this.name;
+        this.discount;
+        this.price;
+        this.id;
+    };
+
+    static get observedAttributes() {
+        return ['image', 'name', 'discount', 'price', 'id'];
+    };
+
+    /**
+     * @param {String} str Recibe un string relativo a los atributos de orden de productos por precio y descuento.
+     * @return {Number} Retorna el elemento o producto según el atributo de descuento o precio para el filtrado.
+     */
+    attributeChangedCallback(nameAttribute, oldValue, newValue) {
+        if (nameAttribute === 'discount' || nameAttribute === 'price') {
+            if (newValue !== oldValue) {
+                this[nameAttribute] = parseInt(newValue);
+            };
+        } else if (newValue !== oldValue) {
+           console.log(this[nameAttribute] = newValue) ;
+        };
+    };
+
+    /**
+     * Callback que retorn ael card de productos cada vez que se renderice por los parámetros de búsqueda elegido por el usuario.
+     * @return {Number} Retorna el elemento o producto según el atributo de descuento o precio para el filtrado.
+     */
+    connectedCallback() {
+        this.innerHTML = `
+            &lt;div class="col d-flex justify-content-center mb-4">
+                &lt;div class="card shadow mb-1 bg-dark rounded" style="width: 20rem">
+                    &lt;img src="${this.image}" class="card-img-top img_cover" alt="${this.name}"/>
+
+                    &lt;div class="card-body text-white-50">
+                        &lt;p class="card-text">${this.name}&lt;/p>
+                    &lt;/div>
+                    &lt;div class="discount card-body text-white-50">
+                        &lt;h6 class="card-title" style="text-decoration:line-through;">
+                            &lt;span>${
+                                this.discount > 0
+                                ? `${applyDiscountOnPrice(this.price, this.discount)}`
+                                : ''
+                            }&lt;/span>
+                        &lt;/h6>
+                    &lt;/div>
+                    &lt;div class="card-body text-white-50 d-flex justify-content-between align-items-baseline" style="padding:10px">
+                        &lt;h5 class="card-title">
+                            &lt;span>${this.price}&lt;/span>
+                        &lt;/h5>
+                        &lt;span style="font-size: 13px; font-weight: 600; color: green">
+                            ${
+                                this.discount > 0
+                                ? `${this.discount}% de Descuento`
+                                : ''
+                            }
+                        &lt;/span>
+                        &lt;button type="button" id="${this.id}" class="btn-add-cart btn btn-primary">
+                            Agregar al carrito                            
+                        &lt;/button>
+                    &lt;/div>
+                &lt;/div>
+            &lt;/div>
+        `
+    };
+};
+
+window.customElements.define('card-product', CardOfProducts);</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-applyDiscountOnPrice.html">applyDiscountOnPrice</a></li><li><a href="module-CardOfProducts.html">CardOfProducts</a></li><li><a href="module-GetProducts.html">GetProducts</a></li><li><a href="module-Pagination.html">Pagination</a></li><li><a href="module-scripts.html">scripts</a></li><li><a href="module-showCart.html">showCart</a></li><li><a href="module-ShowProductsList.html">ShowProductsList</a></li></ul><h3>Classes</h3><ul><li><a href="module-CardOfProducts-CardOfProducts.html">CardOfProducts</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Sun Sep 04 2022 18:15:30 GMT-0300 (Chile Summer Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
