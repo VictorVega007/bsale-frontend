@@ -45,6 +45,8 @@ npm i
 
 EL despliegue de la aplicación se hizo en el siguiente host:
 
+[DEPLOY]
+
 ### Documentación 
 
 La documentación de la aplicación se puede consultar en el siguiente enlace:
@@ -69,3 +71,4 @@ Elaborado por **Victor Vega**
 [Bootstrap]: https://img.shields.io/badge/Bootstrap-35495E?style=for-the-badge&logo=bootstrap&logoColor=4FC08D
 [Bootstrap-url]: https://getbootstrap.com/
 [DOCUMENTACION]: https://victorvega007.github.io/bsale-frontend/index.html
+[DEPLOY]: https://victorvega-bsale.netlify.app/
