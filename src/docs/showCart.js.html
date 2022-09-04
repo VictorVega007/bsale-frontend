@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: showCart.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: showCart.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>'use strict';
+
+/**
+ * Cart Module
+ * @module showCart
+ *
+ * @author  Victor Vega &lt;victorvega.v@gmail.com>
+ * @version 1.0.0
+ * @description Componente del carrito de compra
+ */
+
+import { Products } from "./listOfProducts.js";
+
+/**
+ * Variable que obtiene el div en el que se renderizará el modal del carrito con los productos seleccionados y agregados por el ususario.
+ * @type {Node&lt;HTMLDivElement>}
+ */
+ const cartModal = document.getElementById('cartModal');
+
+/**
+ * Variable del nodo de contador insertado en el carrito para contabilizar y renderizar la cantidad de productos ingresados al carrito de compra. 
+ * @type {Node&lt;HTMLSpanElement>}
+ */
+let countCart = document.getElementById('countCart');
+
+
+/**
+ * Función para crear en el LocalStorage el array de productos ingresados al carrito de compra. Se crea la persistencia de los productos agregados así se cierre o se salga el usuario de la aplicación. Al retomar la conexión se podrá visualizar aún los productos elegidos. 
+ * @returns {Array} 
+ */
+const getCart = () => {
+    if (localStorage.getItem('cart')) {
+        const cart = JSON.parse(localStorage.getItem('cart'));
+        showProductsCart(cart);
+        return cart;
+    } else {
+        const cart = [];
+        localStorage.setItem('cart', JSON.stringify(cart));
+        return cart;
+    };
+};
+
+/**
+ * Función para agregar los productos al carrito de compras. Recibe un id de producto que se agrega y se aumenta la cantidad en 1 del producto por su id agregado. 
+ * @param {Number} productId 
+ * @returns {void}
+ */
+const addToCart = (productId) => {
+    const cart = JSON.parse(localStorage.getItem('cart'));
+    const productToAdd = cart.find(product => product.id === productId)
+    
+    if (productToAdd) {
+        const productIndex = cart.findIndex(prod => prod.id === productId);
+        cart[productIndex].quantity++;
+
+        localStorage.setItem('cart', JSON.stringify(cart));
+        showProductsCart(cart);
+    } else {
+        const currentProduct = Products.find(product => product.id === productId);
+        const product = {
+            product: currentProduct,
+            id: currentProduct.id,
+            quantity: 1
+        };
+
+        cart.push(product);
+
+        localStorage.setItem('cart', JSON.stringify(cart));
+        showProductsCart(cart);
+    };
+};
+
+/**
+ * Función para eliminar productos del carrito por su id que recibe como parámetro.
+ * @param {Number} productId 
+ * @returns {void}
+ */
+const removeProductFromCart = (productId) => {
+    const cart = JSON.parse(localStorage.getItem('cart'));
+
+    const result = cart.filter(product => product.id !== productId);
+    localStorage.setItem('cart', JSON.stringify(result));
+    showProductsCart(result);
+};
+
+/**
+ * Función que renderiza el card modal al momento de consultar el carrito de compras. Igualmente muestra la totalidad de precio a pagar por el usuario por productos. 
+ * @param {Array} cart Recibe un array de productos como parámetros. 
+ * @returns {void}
+ */
+const showProductsCart = (cart) => {
+    const sumProductsQuantity = cart.map(element => element.quantity).reduce((prev, curr) => prev + curr, 0);
+    countCart.innerHTML = sumProductsQuantity;
+    cartModal.innerHTML = '';
+
+    cart.forEach(product => {
+        const totalPriceByProduct = product.product.price * product.quantity;
+    
+        cartModal.innerHTML += `
+            &lt;div class="card mb-3" style="max-width: 540px;">
+            &lt;div class="row g-0">
+            &lt;div class="col-md-4">
+                &lt;img src="${product.product.url_image}" class="img-fluid rounded-start" alt="...">
+            &lt;/div>
+            &lt;div class="col-md-6">
+                &lt;div class="card-body">
+                &lt;h5 class="card-title">Producto: ${product.product.name}&lt;/h5>
+                &lt;h5 class="card-title">Precio: $ ${product.product.price}&lt;/h5>
+                &lt;h5 class="card-title">Total: $ ${totalPriceByProduct}&lt;/h5>
+                &lt;h5 class="card-title">Cantidad: ${product.quantity}&lt;/h5>
+                &lt;/div>
+            &lt;/div>
+            &lt;div class="col-md-2 btn-remove">
+                &lt;button type="button" id="${product.id}" class="removeProduct btn btn-primary">X&lt;/button>
+            &lt;/div>
+            &lt;/div>
+        &lt;/div>
+    `;
+    });
+};
+
+export {
+    getCart,
+    addToCart,
+    removeProductFromCart,
+    showProductsCart
+};</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-applyDiscountOnPrice.html">applyDiscountOnPrice</a></li><li><a href="module-CardOfProducts.html">CardOfProducts</a></li><li><a href="module-GetProducts.html">GetProducts</a></li><li><a href="module-Pagination.html">Pagination</a></li><li><a href="module-scripts.html">scripts</a></li><li><a href="module-showCart.html">showCart</a></li><li><a href="module-ShowProductsList.html">ShowProductsList</a></li></ul><h3>Classes</h3><ul><li><a href="module-CardOfProducts-CardOfProducts.html">CardOfProducts</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Sun Sep 04 2022 18:15:30 GMT-0300 (Chile Summer Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+    "source": {
+        "include": ["./src/app/js", "README.md", "./src/app/js/utils", "./src/app/js/services"],
+        "includePattern": ".+\\.js(doc|x)?$",
+        "exclude": "node_modules/|docs"
+    },
+    "plugins": [],
+    "opts": {
+    "destination": "src/docs/"
+  }
+}
