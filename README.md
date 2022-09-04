@@ -1,7 +1,7 @@
 <br />
 <div align="center">
   <a href="">
-    <img src="src/img/logo.png" alt="Logo" width="80" height="80">
+    <img src="https://img.icons8.com/cotton/344/happy-file.png" alt="Logo" width="80" height="80">
   </a>
   <h3 align="center">Desafío Frontend Bsale</h3>
   <h2>Desarrollo del FrontEnd</h2>
