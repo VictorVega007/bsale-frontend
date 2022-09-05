@@ -40,7 +40,7 @@ class CardOfProducts extends HTMLElement {
                 this[nameAttribute] = parseInt(newValue);
             };
         } else if (newValue !== oldValue) {
-           console.log(this[nameAttribute] = newValue) ;
+           this[nameAttribute] = newValue;
         };
     };
 

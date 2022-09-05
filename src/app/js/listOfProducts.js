@@ -60,12 +60,10 @@ const showProductsList = async (currentPage = 0) => {
 
         if (data.content.length) {
             Products = data.content;
-            console.log(Products);
 
             productsList.replaceChildren();
             data.content.forEach(product => {
                 const image = product.url_image ? product.url_image : imgDefaultValue;
-                console.log(image)
                 const cardProduct = document.createElement('card-product');
 
                 cardProduct.setAttribute('image', image);
