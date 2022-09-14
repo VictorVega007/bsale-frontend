@@ -9,7 +9,7 @@
  * @description Componente del carrito de compra
  */
 
-import getProducts from './services/getProducts.js';
+import getProducts from '../services/getProducts.js';
 import { createPagination } from './createPagination.js';
 
 /**

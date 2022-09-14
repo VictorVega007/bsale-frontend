@@ -12,7 +12,7 @@
 import { pagination } from './pagination.js';
 import { getCart, addToCart, removeProductFromCart } from './showCart.js';
 import  { showProductsList } from './listOfProducts.js';
-import getProductsCategory  from './services/getCategories.js';
+import getProductsCategory  from '../services/getCategories.js';
 
 /**
  * Variable cuyo nodo HTML es obtenido para la búsqueda de un producto a través del evento click ejecutado por el usuario.

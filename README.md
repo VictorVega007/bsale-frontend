@@ -47,6 +47,60 @@ EL despliegue de la aplicación se hizo en el siguiente host:
 
 [DEPLOY]
 
+### Organización de archivos y objetivos
+
+El objetivo principal de organización de archivos adoptado en este proyecto fue buscar una forma de modularizar la aplicación y tener sus distintos componentes separados de manera independiente. Cada componente tiene su función específica y con la idea de escalabilidad al momento de cambiar o añadir algún tipo de feature en el proyecto. 
+
+En este sentido, la distribución de archivos del proyecto se organizó de la siguiente manera:
+
+1. Index.html
+
+Archivo principal de la pagina web que se muestra en el navegador y en el que se encuentra el texto, imágenes y la interfaz en la que el usuario interactúa con la aplicación. 
+
+2. Package.json
+
+Archivo en el que se muestran las dependencias usadas en el proyecto y la configuración del paquete de NPM en general usado en el desarrollo de la aplicación. 
+
+3. Jsdoc.json
+
+Archivo en formato JSON en el que se especifica la configuración de la documentación desarrollada con la libnrería JSDOC para el lenguaje JavaScript. 
+
+4. Carpeta SRC
+
+En esta carpeta se encuentran los distintos componentes que forman parte del proyecto. Las subcarpetas se dividen de la siguiente forma:
+
+  #### App
+
+      A. JS : Directorio en el que se encuentran los archivos en formato JavaScript que representan el código que agrega funcionalidad a la aplicación en cuestión. En esta carpeta se encuentran los archivos:
+
+          A.1. CardOfProducts: cuya funcionalidad es el crear el card de productos a mostrar al usuario usando web component. 
+
+          A.2. CreatePagination: su función principal es crear la navegabilidad en la paginación de los productos que se muestran al usuario. 
+
+          A.3. ListOfProducts: archivo en el que se visualiza el código que permitirá agregar a la interfaz de usuario la lista de productos disponibles en la aplicación. 
+
+          A.4. Pagination: módulo que crea la forma de navegabilidad de la paginación de la aplicación. Es decir, la funcionalidad que el usuario usa a momento de trasladarse de una página a otra que muestran los productos. 
+
+          A.5. ShowCart: archivo que contiene el código para la implementación de la vista del carrito de compras, el cual el usuario visualiza en el widget del carrito en la parte superior derecha de la página web.
+
+          A.6. Scripts: archivo principal de JavaScript en el que se importan los distintos módulos JS que componen la funcionalidad del proyecto, los cuales se ejecutan en este main file. 
+  
+  #### Services
+
+      Carpeta que contiene los archivos en formato JavaScript que se encargan de obtener por medio de código asíncrono cada productos y la categoría de productos, respectivamente. Los archivos que lo conforman son "getCategories.js" y "getProducts.js".
+
+  #### Utils
+
+      Este directorio contiene el archivo JS que es reutilizado en distintas partes del código de la aplicación que se encarga de calcular el descuento por el que serán filtrados los productos. 
+
+5. Carpeta CSS
+
+En este directorio se encuentra el archivo "style.css" que contiene los estilos aplicados en la aplicación. Son estilos puntuales en cuanto a la palicación de flex y tamaños en márgen, padding, width de las imágenes, entre otros. 
+
+6. Docs
+
+Directorio en el que se encuentran todos los archivos que componen la documentación al desplegar la configuración de JSDOC. 
+
 ### Documentación 
 
 La documentación de la aplicación se puede consultar en el siguiente enlace:

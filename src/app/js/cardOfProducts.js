@@ -9,7 +9,7 @@
  * @description Web Component que se crea a través de clase para definir el card de productos a renderizar. 
  */
 
-import applyDiscountOnPrice from './utils/utils.js';
+import applyDiscountOnPrice from '../utils/utils.js';
 
 class CardOfProducts extends HTMLElement {
 
