@@ -75,7 +75,6 @@ document.addEventListener('click', e => {
       };
     
       if (element.classList[0] === 'removeProduct') {
-        console.log(element.id);
         removeProductFromCart(parseInt(element.id));
       };
 });

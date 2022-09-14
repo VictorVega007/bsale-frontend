@@ -96,7 +96,7 @@ const showProductsList = async (currentPage = 0) => {
             productsList.classList.add('notFound');
 
             Swal.fire({
-                title: `No se encontró el producto "${search[0].toUpperCase() + search.substring(1)}"`,
+                title: `No se encontró el producto "${search}"`,
                 confirmButtonText: 'Ok',
                 color: '#15161D',
                 icon: 'error',
