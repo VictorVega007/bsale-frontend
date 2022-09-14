@@ -126,5 +126,5 @@ Elaborado por **Victor Vega**
 [JavaScript-url]: https://www.javascript.com/
 [Bootstrap]: https://img.shields.io/badge/Bootstrap-35495E?style=for-the-badge&logo=bootstrap&logoColor=4FC08D
 [Bootstrap-url]: https://getbootstrap.com/
-[DOCUMENTACION]: https://victorvega007.github.io/bsale-frontend/index.html
+[DOCUMENTACION]: https://victorvega007.github.io/bsale-frontend/
 [DEPLOY]: https://victorvega-bsale.netlify.app/
