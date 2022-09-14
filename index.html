@@ -46,7 +46,7 @@
         <article><br />
 <div align="center">
   <a href="">
-    <img src="src/img/logo.png" alt="Logo" width="80" height="80">
+    <img src="https://img.icons8.com/cotton/344/happy-file.png" alt="Logo" width="80" height="80">
   </a>
   <h3 align="center">Desafío Frontend Bsale</h3>
   <h2>Desarrollo del FrontEnd</h2>
@@ -70,8 +70,66 @@
 </code></pre>
 <h3>Despliegue</h3>
 <p>EL despliegue de la aplicación se hizo en el siguiente host:</p>
+<p><a href="https://victorvega-bsale.netlify.app/">DEPLOY</a></p>
+<h3>Organización de archivos y objetivos</h3>
+<p>El objetivo principal de organización de archivos adoptado en este proyecto fue buscar una forma de modularizar la aplicación y tener sus distintos componentes separados de manera independiente. Cada componente tiene su función específica y con la idea de escalabilidad al momento de cambiar o añadir algún tipo de feature en el proyecto.</p>
+<p>En este sentido, la distribución de archivos del proyecto se organizó de la siguiente manera:</p>
+<ol>
+<li>
+<h4>Index.html</h4>
+</li>
+</ol>
+<p>Archivo principal de la pagina web que se muestra en el navegador y en el que se encuentra el texto, imágenes y la interfaz en la que el usuario interactúa con la aplicación.</p>
+<ol start="2">
+<li>
+<h4>Package.json</h4>
+</li>
+</ol>
+<p>Archivo en el que se muestran las dependencias usadas en el proyecto y la configuración del paquete de NPM en general usado en el desarrollo de la aplicación.</p>
+<ol start="3">
+<li>
+<h4>Jsdoc.json</h4>
+</li>
+</ol>
+<p>Archivo en formato JSON en el que se especifica la configuración de la documentación desarrollada con la libnrería JSDOC para el lenguaje JavaScript.</p>
+<ol start="4">
+<li>
+<h4>Carpeta SRC</h4>
+</li>
+</ol>
+<p>En esta carpeta se encuentran los distintos componentes que forman parte del proyecto. Las subcarpetas se dividen de la siguiente forma:</p>
+<h5>App</h5>
+<h6>JS :</h6>
+<p>Directorio en el que se encuentran los archivos en formato JavaScript que representan el código que agrega funcionalidad a la aplicación en cuestión. En esta carpeta se encuentran los archivos:</p>
+<pre><code>  1. CardOfProducts: cuya funcionalidad es el crear el card de productos a mostrar al usuario usando web component. 
+
+  2. CreatePagination: su función principal es crear la navegabilidad en la paginación de los productos que se muestran al usuario. 
+
+  3. ListOfProducts: archivo en el que se visualiza el código que permitirá agregar a la interfaz de usuario la lista de productos disponibles en la aplicación. 
+
+  4. Pagination: módulo que crea la forma de navegabilidad de la paginación de la aplicación. Es decir, la funcionalidad que el usuario usa a momento de trasladarse de una página a otra que muestran los productos. 
+
+  5. ShowCart: archivo que contiene el código para la implementación de la vista del carrito de compras, el cual el usuario visualiza en el widget del carrito en la parte superior derecha de la página web.
+
+  6. Scripts: archivo principal de JavaScript en el que se importan los distintos módulos JS que componen la funcionalidad del proyecto, los cuales se ejecutan en este main file. 
+</code></pre>
+<h6>Services</h6>
+<pre><code>  Carpeta que contiene los archivos en formato JavaScript que se encargan de obtener por medio de código asíncrono cada productos y la categoría de productos, respectivamente. Los archivos que lo conforman son &quot;getCategories.js&quot; y &quot;getProducts.js&quot;.
+</code></pre>
+<h6>Utils</h6>
+<pre><code>  Este directorio contiene el archivo JS que es reutilizado en distintas partes del código de la aplicación que se encarga de calcular el descuento por el que serán filtrados los productos. 
+</code></pre>
+<ol start="5">
+<li>Carpeta CSS</li>
+</ol>
+<p>En este directorio se encuentra el archivo &quot;style.css&quot; que contiene los estilos aplicados en la aplicación. Son estilos puntuales en cuanto a la palicación de flex y tamaños en márgen, padding, width de las imágenes, entre otros.</p>
+<ol start="6">
+<li>Docs</li>
+</ol>
+<p>Directorio en el que se encuentran todos los archivos que componen la documentación al desplegar la configuración de JSDOC.</p>
 <h3>Documentación</h3>
 <p>La documentación de la aplicación se puede consultar en el siguiente enlace:</p>
+<p><a href="https://victorvega007.github.io/bsale-frontend/index.html">DOCUMENTACION</a></p>
 <h2>Autor</h2>
 <p>Elaborado por <strong>Victor Vega</strong></p>
 <p><a href="https://www.linkedin.com/in/victor-vega-v/"><img src="https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&amp;logo=linkedin&amp;colorB=555" alt="LinkedIn"></a></p>
@@ -86,13 +144,13 @@
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-applyDiscountOnPrice.html">applyDiscountOnPrice</a></li><li><a href="module-CardOfProducts.html">CardOfProducts</a></li><li><a href="module-GetProducts.html">GetProducts</a></li><li><a href="module-Pagination.html">Pagination</a></li><li><a href="module-scripts.html">scripts</a></li><li><a href="module-showCart.html">showCart</a></li><li><a href="module-ShowProductsList.html">ShowProductsList</a></li></ul><h3>Classes</h3><ul><li><a href="module-CardOfProducts-CardOfProducts.html">CardOfProducts</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-CardOfProducts.html">CardOfProducts</a></li><li><a href="module-Pagination.html">Pagination</a></li><li><a href="module-scripts.html">scripts</a></li><li><a href="module-showCart.html">showCart</a></li><li><a href="module-ShowProductsList.html">ShowProductsList</a></li></ul><h3>Classes</h3><ul><li><a href="module-CardOfProducts-CardOfProducts.html">CardOfProducts</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Sun Sep 04 2022 18:15:30 GMT-0300 (Chile Summer Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Wed Sep 14 2022 10:46:07 GMT-0300 (Chile Summer Time)
 </footer>
 
 <script> prettyPrint(); </script>
