@@ -9,7 +9,7 @@
  * @description Función que devuelve la categoria de todos los productos disponibles en la API. 
  */
 
-const host = 'https://victor-bsale.herokuapp.com/';
+const host = 'https://bsale-api-wurz.onrender.com/';
 
 /**
  * Función que devueve el array de productos por su categoria.

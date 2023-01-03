@@ -9,7 +9,7 @@
  * @description Función para consultar la API de productos. 
  */
 
-const host = 'https://victor-bsale.herokuapp.com/';
+const host = 'https://bsale-api-wurz.onrender.com/';
 
 /**
  * Esta funcion recibe los parametros solicitados por el usuario y devuelve los productos que coinciden con los parametros recibidos.
